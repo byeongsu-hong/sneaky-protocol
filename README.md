@@ -9,7 +9,7 @@ $ yarn dev
 $ yarn deploy # from other terminal
 ```
 
-## Defualt accounts
+## Default accounts
 
 Using the default mnemonic `test test test test test test test test test test test junk`
 
