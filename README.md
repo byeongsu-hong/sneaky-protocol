@@ -1,6 +1,6 @@
 # Sneaky Protocol
 
-Sneaky. the Sneakers tokenization platform
+Sneaky. The Sneakers tokenization platform
 
 ## Action Flow
 
