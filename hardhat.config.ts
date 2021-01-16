@@ -10,6 +10,12 @@ export default {
       blockGasLimit: 0x1fffffffffffff,
       allowUnlimitedContractSize: true,
     },
+    dev: {
+      url: 'http://localhost:8545',
+      accounts: {
+        mnemonic: 'test test test test test test test test test test test junk',
+      },
+    },
   },
   solidity: {
     version: '0.7.6',

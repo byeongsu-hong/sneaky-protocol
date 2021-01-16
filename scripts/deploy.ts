@@ -33,7 +33,7 @@ async function main() {
   );
 
   console.log(`Uniswap Factory: ${uniFactory.address}`);
-  console.log(`Uniswap Pair: ${uniRouter.address}`);
+  console.log(`Uniswap Router: ${uniRouter.address}`);
 
   const MockDAI = await ethers.getContractFactory('MockDAI');
   const dai = await MockDAI.connect(operator).deploy();

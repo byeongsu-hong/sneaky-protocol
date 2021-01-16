@@ -5,8 +5,9 @@
   "author": "orngefrost <frostornge@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "run": "hardhat run",
+    "dev": "hardhat node",
     "test": "hardhat test",
+    "deploy": "hardhat run ./scripts/deploy.ts",
     "compile": "hardhat compile"
   },
   "devDependencies": {
