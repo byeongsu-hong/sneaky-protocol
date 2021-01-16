@@ -55,6 +55,7 @@ describe('Sneaky', () => {
       utils.parseEther('100'),
       (await latestBlocktime(provider)) + 100,
       DAY,
+      DAY,
       utils.parseEther('200'),
       utils.parseEther('100')
     );

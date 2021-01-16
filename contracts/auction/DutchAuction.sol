@@ -37,7 +37,8 @@ contract DutchAuction is IAuction, ERC20Burnable {
     uint256 public override remains;
 
     uint256 public immutable override startTime;
-    uint256 public immutable override endTime;
+    uint256 public immutable override auctionEnds;
+    uint256 public immutable override tradingEnds;
     uint256 public immutable override startPrice;
     uint256 public immutable override endPrice;
 
@@ -50,6 +51,7 @@ contract DutchAuction is IAuction, ERC20Burnable {
         uint256 _amount,
         uint256 _startTime,
         uint256 _auctionPeriod,
+        uint256 _tradingPeriod,
         uint256 _startPrice,
         uint256 _endPrice
     ) ERC20('Sneaky Coupon', 'SNKC') {
@@ -69,7 +71,8 @@ contract DutchAuction is IAuction, ERC20Burnable {
             'DutchAuction: _startTime > block.timestamp'
         );
         startTime = _startTime;
-        endTime = _startTime.add(_auctionPeriod);
+        auctionEnds = _startTime.add(_auctionPeriod);
+        tradingEnds = _startTime.add(_auctionPeriod).add(_tradingPeriod);
 
         require(
             _startPrice > _endPrice,
@@ -82,7 +85,7 @@ contract DutchAuction is IAuction, ERC20Burnable {
     }
 
     modifier checkExpiry(address recipient) {
-        if (block.timestamp > endTime) {
+        if (block.timestamp > tradingEnds) {
             require(recipient == factory, 'DutchAuction: token expired');
         }
 
@@ -90,7 +93,7 @@ contract DutchAuction is IAuction, ERC20Burnable {
     }
 
     function currentPrice() public view override returns (uint256) {
-        uint256 period = endTime.sub(startTime);
+        uint256 period = auctionEnds.sub(startTime);
         uint256 pricegap = startPrice.sub(endPrice);
         uint256 gradient = pricegap.mul(1e18).div(period);
 
@@ -101,7 +104,8 @@ contract DutchAuction is IAuction, ERC20Burnable {
 
     function purchase() public override {
         require(block.timestamp >= startTime, 'DutchAuction: not started');
-        require(block.timestamp <= endTime, 'DutchAuction: finished');
+        require(block.timestamp <= auctionEnds, 'DutchAuction: finished');
+        require(remains > 0, 'DutchAuction: sold out');
 
         remains = remains.sub(1);
 

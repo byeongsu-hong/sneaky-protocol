@@ -15,7 +15,9 @@ interface IAuction {
 
     function startTime() external view returns (uint256);
 
-    function endTime() external view returns (uint256);
+    function auctionEnds() external view returns (uint256);
+
+    function tradingEnds() external view returns (uint256);
 
     function startPrice() external view returns (uint256);
 

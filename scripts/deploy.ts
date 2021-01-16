@@ -54,6 +54,7 @@ async function main() {
     100, // 팔고싶은 쿠폰 갯수
     (await latestBlocktime(provider)) + 100,
     DAY, // 경매 기간 - 하루동안
+    7 * DAY, // 트레이딩 기간 - 일주일동안
     utils.parseEther('200'), // 시작 가격
     utils.parseEther('100') // 종료 가격
   );
