@@ -2,6 +2,14 @@
 
 Sneaky. the Sneakers tokenization platform
 
+## Action Flow
+
+1. Deploy Factory
+2. Deploy Auction contract
+3. Sell sneakers until auction period ends
+4. Trade sneakers until trading period ends
+5. Swap sneakers coupon to **real** sneakers token with size
+
 ## Testnet
 
 ```sh
@@ -76,11 +84,3 @@ Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0
 Account #19: 0x8626f6940e2eb28930efb4cef49b2d1f2c9c1199 (10000 ETH)
 Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
 ```
-
-## Action Flow
-
-1. Deploy Factory
-2. Deploy Auction contract
-3. Sell sneakers until auction period ends
-4. Trade sneakers until trading period ends
-5. Swap sneakers coupon to **real** sneakers token with size
